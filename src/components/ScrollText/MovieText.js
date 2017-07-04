@@ -9,10 +9,10 @@ const MovieText = ({movie, randNum}) => {
     <section className="star-wars">
       <div className="crawl">
         <div className="title">
-          <h1>{movie[randNum].opening_crawl}</h1>
+          <p>{movie[randNum].opening_crawl}</p>
         </div>
-        <p>{movie[randNum].title}</p>
-        <p>{movie[randNum].release_date}</p>
+        <h1 className="title">{movie[randNum].title}</h1>
+        <p className="date">{movie[randNum].release_date}</p>
       </div>
     </section>
 </div>

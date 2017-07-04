@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import './App.css';
 import ScrollText from './components/ScrollText/ScrollText';
-import Movie from './components/constructors/Movies'
-import api from './data/api'
+import Movie from './components/constructors/Movies';
+import api from './data/api';
+import Button from './components/Button/Button';
 
 class App extends Component {
   constructor() {
@@ -11,6 +12,7 @@ class App extends Component {
       films: null
     }
   }
+
 
   componentDidMount() {
     const movieArray = []
@@ -39,6 +41,7 @@ class App extends Component {
       return (
         <div className="App">
           <ScrollText films={this.state.films} />
+          <Button />
         </div>
       )
     }
