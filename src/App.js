@@ -8,7 +8,7 @@ class App extends Component {
   constructor() {
     super()
     this.state = {
-      films: []
+      films: null
     }
   }
 
@@ -18,24 +18,30 @@ class App extends Component {
     const movieFetch = fetch(api.films)
     .then((res) => res.json())
     .then((info) => {
-      movieArray.push(info.results.map(obj => new Movie(obj)))
+      info.results.forEach(obj => movieArray.push(new Movie(obj)))
     }).catch(function(error) {
       console.log('Request failed:', error);
     })
 
       Promise.all([movieFetch]).then(values => {
         this.setState({
-           films: this.state.films.concat(...movieArray)
+           films: movieArray
         })
       })
   }
 
   render() {
-    return (
-      <div className="App">
-        <ScrollText films={this.state.films} />
-      </div>
-    );
+    if(!this.state.films){
+      return (
+        <div></div>
+      );
+    } else {
+      return (
+        <div className="App">
+          <ScrollText films={this.state.films} />
+        </div>
+      )
+    }
   }
 }
 
