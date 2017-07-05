@@ -4,10 +4,15 @@ import ScrollText from './components/ScrollText/ScrollText';
 import Movie from './components/constructors/Movies';
 import api from './data/api';
 import Button from './components/Button/Button';
+import PeopleData from './helper'
+
 
 class App extends Component {
   constructor() {
     super()
+
+    this.helper = new PeopleData;
+
     this.state = {
       films: null
     }
@@ -24,12 +29,12 @@ class App extends Component {
     }).catch(function(error) {
       console.log('Request failed:', error);
     })
-
       Promise.all([movieFetch]).then(values => {
         this.setState({
            films: movieArray
         })
       })
+      this.helper.someThing()
   }
 
   render() {
