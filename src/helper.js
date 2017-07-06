@@ -3,7 +3,6 @@ import App from './App'
 export default class HelperData {
 
   getPeople(appComponent) {
-    console.log(appComponent.state);
     fetch('https://swapi.co/api/people/')
     .then(res => res.json())
     .then(data => {
@@ -22,20 +21,19 @@ export default class HelperData {
       .then(dataArray => {
         const homes = dataArray.slice(0, 10)
         const species = dataArray.slice(10)
-        return homes.map((place, i) => {
-          return Object.assign(data.results[i], { homeworld: place.name } )
+        homes.map((place, i) => {
+          return Object.assign(data.results[i], { homeworld: place.name, population: place.population } )
         })
         return species.map((type, i) => {
           return Object.assign(data.results[i], { species: type.name, language: type.language } )
         })
+
       }).then((final) => {
+        console.log(final);
         appComponent.setState({
           people: final
         })
-        console.log(appComponent.state.people);
       })
-    }).catch(function(error) {
-      console.log('Request failed:', error);
     })
   }
 }
