@@ -40,7 +40,7 @@ export default class HelperData {
     fetch('http://swapi.co/api/planets/')
       .then(res => res.json())
       .then(data => {
-          console.log(data);
+
         const unresolvedPlanets = data.results.map((planetObj) => {
           // console.log(planetObj);
            const person = planetObj.residents.map((resident) => {
@@ -53,12 +53,13 @@ export default class HelperData {
           .then(info => {
            return info.map((personArray, i) => {
               return personArray.map((personObj, index) => {
-                    return Object.assign(data.results[i].residents, {[index]: personObj.name} )
+                 Object.assign(data.results[i].residents, {[index]: personObj.name} )
+                 return data
                 })
             })
           })
       }).then((final) => {
-        console.log(final;
+        console.log(final);
       })
   }
 
