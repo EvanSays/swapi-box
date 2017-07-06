@@ -4,7 +4,7 @@ import './MovieText.css'
 const MovieText = ({movie, randNum}) => {
   console.log(randNum)
   return (
-  <div>
+  <div className="movie-text">
     <div className="fade"></div>
     <section className="star-wars">
       <div className="crawl">
