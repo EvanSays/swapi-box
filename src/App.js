@@ -24,19 +24,25 @@ class App extends Component {
   componentDidMount() {
 
     const movieArray = []
+
     const movieFetch = fetch(api.films)
+
     .then((res) => res.json())
     .then((info) => {
       info.results.forEach(obj => movieArray.push(new Movie(obj)))
-    }).catch(function(error) {
+    })
+
+    .catch(function(error) {
       console.log('Request failed:', error);
     })
-      Promise.all([movieFetch]).then(values => {
-        this.setState({
-           films: movieArray
+
+    Promise.all([movieFetch])
+    .then(values => {
+      this.setState ({
+          films: movieArray
         })
       })
-      console.log(this.helper.getPeople())
+  console.log(this.helper.getPeople())
   }
 
   render() {
