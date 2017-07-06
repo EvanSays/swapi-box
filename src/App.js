@@ -15,7 +15,8 @@ class App extends Component {
       films: null,
       people: null
     }
-    this.helper.getPeople(this)
+
+    this.populatePeople = this.populatePeople.bind(this)
   }
 
   componentDidMount() {
@@ -37,6 +38,10 @@ class App extends Component {
     })
   }
 
+  populatePeople() {
+    this.helper.getPeople(this)
+  }
+
   render() {
     if(!this.state.films){
       return (
@@ -46,8 +51,8 @@ class App extends Component {
       return (
         <div className="App">
           <ScrollText films={this.state.films} />
-          <Button />
-          <CardList />
+          <Button populatePeople={this.populatePeople} />
+          <CardList peopleArray={this.state.people} />
         </div>
       )
     }

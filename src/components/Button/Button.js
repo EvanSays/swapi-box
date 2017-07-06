@@ -1,10 +1,10 @@
 import React from 'react';
 import './Button.css'
 
-const Button = () => {
+const Button = ({populatePeople}) => {
   return (
-    <div className="btn-container">
-      <button onClick={() => console.log('Hi')}>People</button>
+    <div>
+      <button onClick={() => populatePeople()}>People</button>
       <button onClick={() => console.log('Yo')}>Planets</button>
       <button onClick={() => console.log('Peace')}>Vehicles</button>
     </div>
