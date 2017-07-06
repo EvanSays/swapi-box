@@ -22,7 +22,7 @@ export default class HelperData {
       .then(dataArray => {
         const homes = dataArray.slice(0, 10)
         const species = dataArray.slice(10)
-        return homes.map((place, i) => {
+        homes.map((place, i) => {
           return Object.assign(data.results[i], { homeworld: place.name } )
         })
         return species.map((type, i) => {
