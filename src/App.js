@@ -13,10 +13,12 @@ class App extends Component {
     this.helper = new HelperData;
     this.state = {
       films: null,
-      people: null
+      people: null,
+      planets: null
     }
 
     this.populatePeople = this.populatePeople.bind(this)
+    this.helper.getPlanets()
   }
 
   componentDidMount() {

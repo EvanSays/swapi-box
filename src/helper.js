@@ -35,4 +35,33 @@ export default class HelperData {
       })
     })
   }
+
+  getPlanets() {
+    fetch('http://swapi.co/api/planets/')
+      .then(res => res.json())
+      .then(data => {
+
+        const unresolvedPlanets = data.results.map((planetObj) => {
+          // console.log(planetObj);
+           const person = planetObj.residents.map((resident) => {
+             return fetch(resident)
+              .then(res => res.json())
+           })
+            return Promise.all(person)
+        })
+          return Promise.all(unresolvedPlanets)
+          .then(info => {
+           return info.map((personArray, i) => {
+              return personArray.map((personObj, index) => {
+                 Object.assign(data.results[i].residents, {[index]: personObj.name} )
+                 return data
+                })
+            })
+          })
+      }).then((final) => {
+        console.log(final);
+      })
+  }
+
+
 }
