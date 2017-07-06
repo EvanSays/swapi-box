@@ -14,14 +14,16 @@ class App extends Component {
     this.helper = new PeopleData;
 
     this.state = {
-      films: null
+      films: null,
+      people: null
+
     }
   }
 
 
   componentDidMount() {
-    const movieArray = []
 
+    const movieArray = []
     const movieFetch = fetch(api.films)
     .then((res) => res.json())
     .then((info) => {
@@ -34,7 +36,7 @@ class App extends Component {
            films: movieArray
         })
       })
-      this.helper.someThing()
+      console.log(this.helper.getPeople())
   }
 
   render() {
