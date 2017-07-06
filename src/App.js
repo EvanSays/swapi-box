@@ -4,6 +4,7 @@ import ScrollText from './components/ScrollText/ScrollText';
 import Movie from './components/constructors/Movies';
 import api from './data/api';
 import Button from './components/Button/Button';
+import CardList from './components/CardList/CardList'
 import HelperData from './helper'
 
 class App extends Component {
@@ -51,6 +52,7 @@ class App extends Component {
         <div className="App">
           <ScrollText films={this.state.films} />
           <Button populatePeople={this.populatePeople} />
+          <CardList />
         </div>
       )
     }
