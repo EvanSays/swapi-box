@@ -52,7 +52,7 @@ class App extends Component {
         <div className="App">
           <ScrollText films={this.state.films} />
           <Button populatePeople={this.populatePeople} />
-          <CardList />
+          <CardList peopleArray={this.state.people} />
         </div>
       )
     }

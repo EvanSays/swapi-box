@@ -1,14 +1,15 @@
 import React from 'react';
 import './Card.css'
 
-const Card = () => {
+const Card = ({peopleInfo}) => {
+  console.log('p', peopleInfo);
   return (
     <div className="card">
-      <h1>Name: Luke Skywalker</h1>
-      <p>Hometown: Tattatooie</p>
-      <p>Species: Human</p>
-      <p>Language: English</p>
-      <p>Population: 1000000</p>
+      <h1>Name: {peopleInfo.name}</h1>
+      <p>Hometown: {peopleInfo.homeworld}</p>
+      <p>Species: {peopleInfo.species}</p>
+      <p>Language: {peopleInfo.language}</p>
+      <p>Population: {peopleInfo.population}</p>
     </div>
   )
 }

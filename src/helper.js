@@ -29,7 +29,6 @@ export default class HelperData {
         })
 
       }).then((final) => {
-        console.log(final);
         appComponent.setState({
           people: final
         })
