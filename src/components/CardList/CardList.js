@@ -3,6 +3,7 @@ import './CardList.css';
 import PersonCard from '../Card/PersonCard';
 import PlanetCard from '../Card/PlanetCard';
 import VehicleCard from '../Card/VehicleCard'
+import './CardList.css'
 
 
 const CardList = ({peopleArray, planetArray, vehicleArray, buttonState}) => {
