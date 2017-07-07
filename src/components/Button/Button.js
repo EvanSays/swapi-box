@@ -1,12 +1,12 @@
 import React from 'react';
 import './Button.css';
 
-const Button = ({populatePeople, populatePlanetDetails}) => {
+const Button = ({populatePeople, populatePlanetDetails, populateVehicles}) => {
   return (
     <div>
       <button onClick={() => populatePeople()}>People</button>
       <button onClick={() => populatePlanetDetails()}>Planets</button>
-      <button onClick={() => console.log('Peace')}>Vehicles</button>
+      <button onClick={() => populateVehicles()}>Vehicles</button>
     </div>
   )
 }

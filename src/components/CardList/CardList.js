@@ -2,9 +2,10 @@ import React from 'react';
 import './CardList.css';
 import PersonCard from '../Card/PersonCard';
 import PlanetCard from '../Card/PlanetCard';
+import VehicleCard from '../Card/VehicleCard'
 
 
-const CardList = ({peopleArray, planetArray, buttonState}) => {
+const CardList = ({peopleArray, planetArray, vehicleArray, buttonState}) => {
   console.log(peopleArray, planetArray, buttonState);
   if (buttonState === 'people' && peopleArray !== null) {
     console.log('hi');
@@ -26,6 +27,17 @@ const CardList = ({peopleArray, planetArray, buttonState}) => {
     return (
       <div className="card-container">
         {planetsCard}
+      </div>
+    )
+  }
+
+  else if (buttonState === 'vehicles' && vehicleArray !== null) {
+    const vehicleCard = vehicleArray.map(info => {
+      return <VehicleCard vehicleInfo={info}/>
+    })
+    return (
+      <div className="card-container">
+        {vehicleCard}
       </div>
     )
   } else {

@@ -39,7 +39,9 @@ export default class HelperData {
   }
 
   getPlanets(app) {
-    fetch('http://swapi.co/api/planets/').then(res => res.json()).then(planets => {
+    fetch('http://swapi.co/api/planets/')
+    .then(res => res.json())
+    .then(planets => {
       const unresolvedPlanets = planets.results.map((planet) => {
         const residentNames = planet.residents.map((resident) => {
           return fetch(resident).then(res => res.json()).then(data => data.name)
@@ -50,6 +52,17 @@ export default class HelperData {
       })
       return Promise.all(unresolvedPlanets)
     }).then(res => app.setState({planets: res}))
+  }
+
+  getVehicles(app) {
+    fetch('http://swapi.co/api/vehicles/')
+    .then(res => res.json())
+    .then(vehicles => {
+      const unresolvedVehicles = vehicles.results.map(vehicle => {
+        return vehicle
+      });
+      return Promise.all(unresolvedVehicles).then(res => app.setState({vehicles: res}))
+    })
   }
 
 }
