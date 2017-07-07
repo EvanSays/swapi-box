@@ -18,7 +18,7 @@ class App extends Component {
     }
 
     this.populatePeople = this.populatePeople.bind(this)
-    this.helper.getPlanets()
+    this.helper.getPlanets(this)
   }
 
   componentDidMount() {
