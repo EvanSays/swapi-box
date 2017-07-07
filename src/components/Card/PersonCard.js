@@ -1,8 +1,7 @@
 import React from 'react';
 import './PersonCard.css';
 
-const PersonCard = ({peopleInfo}) => {
-  console.log('p', peopleInfo);
+const PersonCard = ({peopleInfo, addFavorites}) => {
   return (
     <div className="card">
       <h1>Name: {peopleInfo.name}</h1>
@@ -10,7 +9,7 @@ const PersonCard = ({peopleInfo}) => {
       <p>Species: {peopleInfo.species}</p>
       <p>Language: {peopleInfo.language}</p>
       <p>Population: {peopleInfo.population}</p>
-      <button className="fave">Like</button>
+      <button className="fave" onClick={()=> addFavorites(peopleInfo)}>Like</button>
     </div>
   )
 }

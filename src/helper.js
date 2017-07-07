@@ -22,7 +22,8 @@ export default class HelperData {
         homes.map((place, i) => {
           return Object.assign(data.results[i], {
             homeworld: place.name,
-            population: place.population
+            population: place.population,
+            type: 'people'
           })
         })
         return species.map((type, i) => {
@@ -33,7 +34,8 @@ export default class HelperData {
         })
 
       }).then((final) => {
-        appComponent.setState({people: final})
+        appComponent.setState({people: final,
+                               renderArray: final})
       })
     })
   }
@@ -43,6 +45,9 @@ export default class HelperData {
     .then(res => res.json())
     .then(planets => {
       const unresolvedPlanets = planets.results.map((planet) => {
+        return Object.assign(planet, {
+          type: 'planet'
+        })
         const residentNames = planet.residents.map((resident) => {
           return fetch(resident).then(res => res.json()).then(data => data.name)
         })
@@ -51,7 +56,8 @@ export default class HelperData {
         })
       })
       return Promise.all(unresolvedPlanets)
-    }).then(res => app.setState({planets: res}))
+    }).then(res => app.setState({planets: res,
+                                 renderArray: res}))
   }
 
   getVehicles(app) {
@@ -59,10 +65,17 @@ export default class HelperData {
     .then(res => res.json())
     .then(vehicles => {
       const unresolvedVehicles = vehicles.results.map(vehicle => {
-        return vehicle
+        return Object.assign(vehicle, {
+          type: 'vehicle'
+        })
       });
-      return Promise.all(unresolvedVehicles).then(res => app.setState({vehicles: res}))
+      return Promise.all(unresolvedVehicles).then(res => app.setState({vehicles: res,
+                                                                        renderArray: res}))
     })
+  }
+
+  getFavorites(app) {
+
   }
 
 }

@@ -2,7 +2,6 @@ import React from 'react'
 import './MovieText.css'
 
 const MovieText = ({movie, randNum}) => {
-  console.log(randNum)
   return (
   <div className="movie-text">
     <div className="fade"></div>

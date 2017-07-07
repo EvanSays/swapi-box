@@ -16,11 +16,15 @@ class App extends Component {
       people: null,
       planets: null,
       vehicles: null,
-      buttonName: null
+      buttonName: null,
+      favorites: [],
+      renderArray: []
     }
     this.populatePeople = this.populatePeople.bind(this)
     this.populatePlanetDetails = this.populatePlanetDetails.bind(this)
     this.populateVehicles = this.populateVehicles.bind(this)
+    this.populateFavorites = this.populateFavorites.bind(this)
+    this.addFavorites = this.addFavorites.bind(this)
 
   }
 
@@ -40,6 +44,21 @@ class App extends Component {
       this.setState ({
           films: movieArray
       })
+    })
+  }
+
+  addFavorites(info) {
+    const favorites = this.state.favorites
+    favorites.push(info)
+    this.setState({
+      favorites
+    })
+  }
+
+  populateFavorites() {
+    const favorites = this.state.favorites
+    this.setState({
+      renderArray: favorites
     })
   }
 
@@ -75,11 +94,14 @@ class App extends Component {
           <ScrollText films={this.state.films} />
           <Button populatePeople={this.populatePeople}
                   populatePlanetDetails={this.populatePlanetDetails}
-                  populateVehicles={this.populateVehicles} />
+                  populateVehicles={this.populateVehicles}
+                  populateFavorites={this.populateFavorites} />
           <CardList peopleArray={this.state.people}
                     planetArray={this.state.planets}
                     vehicleArray={this.state.vehicles}
-                    buttonState={this.state.buttonName}/>
+                    buttonState={this.state.buttonName}
+                    addFavorites={this.addFavorites}
+                    renderArray={this.state.renderArray}/>
         </div>
       )
     }
