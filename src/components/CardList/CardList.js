@@ -4,12 +4,10 @@ import PersonCard from '../Card/PersonCard';
 import PlanetCard from '../Card/PlanetCard';
 
 
-const CardList = ({peopleArray, planetArray}) => {
-  if (peopleArray === null) {
-    return (
-      <div>{console.log("NULLLLLLLL")}</div>
-    )
-  } else {
+const CardList = ({peopleArray, planetArray, buttonState}) => {
+  console.log(peopleArray, planetArray, buttonState);
+  if (buttonState === 'people' && peopleArray !== null) {
+    console.log('hi');
     const personCard = peopleArray.map(person => {
       return <PersonCard peopleInfo={person}/>
     })
@@ -19,12 +17,8 @@ const CardList = ({peopleArray, planetArray}) => {
       </div>
     )
   }
-  if (planetArray === null) {
-    console.log('no', planetArray)
-    return (
-      <div>{console.log("no way pal")}</div>
-    )
-  } else {
+
+  else if (buttonState === 'planets' && planetArray !== null) {
     const planetsCard = planetArray.map(info => {
       console.log(info)
       return <PlanetCard planetInfo={info}/>
@@ -33,6 +27,10 @@ const CardList = ({peopleArray, planetArray}) => {
       <div className="card-container">
         {planetsCard}
       </div>
+    )
+  } else {
+    return (
+      <div></div>
     )
   }
 }
