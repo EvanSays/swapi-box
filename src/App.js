@@ -17,14 +17,14 @@ class App extends Component {
       planets: null,
       vehicles: null,
       buttonName: null,
-      favorites: [],
-      renderArray: []
+      renderArray: [],
+      favorites: []
     }
     this.populatePeople = this.populatePeople.bind(this)
     this.populatePlanetDetails = this.populatePlanetDetails.bind(this)
     this.populateVehicles = this.populateVehicles.bind(this)
     this.populateFavorites = this.populateFavorites.bind(this)
-    this.addFavorites = this.addFavorites.bind(this)
+    this.toggleFavorites = this.toggleFavorites.bind(this)
 
   }
 
@@ -47,18 +47,29 @@ class App extends Component {
     })
   }
 
-  addFavorites(info) {
+  toggleFavorites(info) {
+    info.favorited === false ? info.favorited = true :  info.favorited = false
+
     const favorites = this.state.favorites
-    favorites.push(info)
-    this.setState({
-      favorites
-    })
+
+    if(favorites.length === 0) {
+      favorites.push(info)
+      this.setState({
+        favorites
+      })
+    }
+  
+
+
   }
+
+
+
 
   populateFavorites() {
     const favorites = this.state.favorites
     this.setState({
-      renderArray: favorites
+      renderArray: favorites,
     })
   }
 
@@ -95,13 +106,14 @@ class App extends Component {
           <Button populatePeople={this.populatePeople}
                   populatePlanetDetails={this.populatePlanetDetails}
                   populateVehicles={this.populateVehicles}
-                  populateFavorites={this.populateFavorites} />
+                  populateFavorites={this.populateFavorites}
+                  favorites={this.state.favorites} />
           <CardList peopleArray={this.state.people}
                     planetArray={this.state.planets}
                     vehicleArray={this.state.vehicles}
                     buttonState={this.state.buttonName}
-                    addFavorites={this.addFavorites}
-                    renderArray={this.state.renderArray}/>
+                    toggleFavorites={this.toggleFavorites}
+                    renderArray={this.state.renderArray} />
         </div>
       )
     }

@@ -6,3 +6,12 @@
   margin-bottom: 10px;
   height: 300px;
 }
+
+.normal-btn {
+  background-color: blue;
+
+}
+
+.pink-btn {
+  background-color: pink;
+}
