@@ -1,4 +1,4 @@
-import App from './App'
+import App from './App';
 
 export default class HelperData {
 
@@ -36,7 +36,7 @@ export default class HelperData {
     })
   }
 
-  getPlanets() {
+  getPlanets(app) {
     fetch('http://swapi.co/api/planets/')
       .then(res => res.json())
       .then(data => {
@@ -59,7 +59,9 @@ export default class HelperData {
             })
           })
       }).then((final) => {
-        console.log(final);
+        app.setState({
+          planets: final
+        })
       })
   }
 
