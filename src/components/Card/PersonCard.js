@@ -10,6 +10,7 @@ const PersonCard = ({peopleInfo}) => {
       <p>Species: {peopleInfo.species}</p>
       <p>Language: {peopleInfo.language}</p>
       <p>Population: {peopleInfo.population}</p>
+      <button className="fave">Like</button>
     </div>
   )
 }
