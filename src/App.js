@@ -14,11 +14,11 @@ class App extends Component {
     this.state = {
       films: null,
       people: null,
-      planets: null
+      planets: null,
+      buttonName: null
     }
-
     this.populatePeople = this.populatePeople.bind(this)
-    this.helper.getPlanets(this)
+    this.populatePlanetDetails = this.populatePlanetDetails.bind(this)
   }
 
   componentDidMount() {
@@ -42,6 +42,17 @@ class App extends Component {
 
   populatePeople() {
     this.helper.getPeople(this)
+    this.setState({
+      buttonName: 'people'
+    })
+  }
+
+  populatePlanetDetails() {
+    console.log('connected bro');
+    this.helper.getPlanets(this)
+    this.setState({
+      buttonName: 'planets'
+    })
   }
 
   render() {
@@ -53,8 +64,11 @@ class App extends Component {
       return (
         <div className="App">
           <ScrollText films={this.state.films} />
-          <Button populatePeople={this.populatePeople} />
-          <CardList peopleArray={this.state.people} />
+          <Button populatePeople={this.populatePeople}
+                  populatePlanetDetails={this.populatePlanetDetails} />
+          <CardList peopleArray={this.state.people}
+                    planetArray={this.state.planets}
+                    buttonState={this.state.buttonName}/>
         </div>
       )
     }

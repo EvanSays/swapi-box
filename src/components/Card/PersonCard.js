@@ -1,7 +1,7 @@
 import React from 'react';
-import './Card.css'
+import './PersonCard.css';
 
-const Card = ({peopleInfo}) => {
+const PersonCard = ({peopleInfo}) => {
   console.log('p', peopleInfo);
   return (
     <div className="card">
@@ -14,4 +14,4 @@ const Card = ({peopleInfo}) => {
   )
 }
 
-export default Card;
+export default PersonCard;
