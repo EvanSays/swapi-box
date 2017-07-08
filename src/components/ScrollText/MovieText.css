@@ -1,6 +1,5 @@
 
 .movie-text {
-  width: 30%;
   height: 100%;
   overflow: hidden;
 }
@@ -18,7 +17,7 @@
   display: flex;
   justify-content: center;
   position: relative;
-  height: 800px;
+  max-height: 100%;
   color: #feda4a;
   font-family: 'Pathway Gothic One', sans-serif;
   font-size: 34px;

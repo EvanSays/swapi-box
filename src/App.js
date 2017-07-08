@@ -125,12 +125,12 @@ class App extends Component {
     } else {
       return (
         <div className="App">
-          <ScrollText films={this.state.films} />
-          <Button populatePeople={this.populatePeople}
-                  populatePlanetDetails={this.populatePlanetDetails}
-                  populateVehicles={this.populateVehicles}
-                  populateFavorites={this.populateFavorites}
-                  favorites={this.state.favorites} />
+            <Button populatePeople={this.populatePeople}
+              populatePlanetDetails={this.populatePlanetDetails}
+              populateVehicles={this.populateVehicles}
+              populateFavorites={this.populateFavorites}
+              favorites={this.state.favorites} />
+              <ScrollText films={this.state.films} />
           <CardList peopleArray={this.state.people}
                     planetArray={this.state.planets}
                     vehicleArray={this.state.vehicles}
