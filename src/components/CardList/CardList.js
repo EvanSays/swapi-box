@@ -6,17 +6,28 @@ import VehicleCard from '../Card/VehicleCard';
 import './CardList.css';
 
 
-const CardList = ({peopleArray, planetArray, vehicleArray, buttonState, addFavorites, renderArray}) => {
+const CardList = ({ peopleArray,
+                    planetArray,
+                    vehicleArray,
+                    buttonState,
+                    toggleFavorites,
+                    renderArray }) => {
+
 
   const array = renderArray.map((obj) => {
       if (obj.type === 'people') {
-        console.log(obj.type);
-      return <PersonCard addFavorites={addFavorites} peopleInfo={obj}/>
+      return <PersonCard key={Math.round(Date.now() * Math.random())}
+                         toggleFavorites={toggleFavorites}
+                        peopleInfo={obj} />
+
       } else if (obj.type === 'planet') {
-          console.log(obj.type);
-        return <PlanetCard addFavorites={addFavorites} planetInfo={obj}/>
+        return <PlanetCard key={Math.round(Date.now() * Math.random())}
+                           toggleFavorites={toggleFavorites}
+                           planetInfo={obj} />
       } else if (obj.type === 'vehicle'){
-       return <VehicleCard addFavorites={addFavorites} vehicleInfo={obj}/>
+       return <VehicleCard key={Math.round(Date.now() * Math.random())}
+                           toggleFavorites={toggleFavorites}
+                           vehicleInfo={obj} />
       }
     })
     return (
