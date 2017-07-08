@@ -1,5 +1,6 @@
 import React from 'react';
 import './PersonCard.css';
+import PropTypes from 'prop-types';
 
 const PersonCard = ({peopleInfo, toggleFavorites}) => {
   let favorited;
@@ -16,5 +17,11 @@ const PersonCard = ({peopleInfo, toggleFavorites}) => {
     </div>
   )
 }
+
+PersonCard.propTypes = {
+  peopleInfo: PropTypes.object.isRequired,
+  toggleFavorites: PropTypes.func.isRequired
+}
+
 
 export default PersonCard;

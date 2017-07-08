@@ -4,6 +4,7 @@ import PersonCard from '../Card/PersonCard';
 import PlanetCard from '../Card/PlanetCard';
 import VehicleCard from '../Card/VehicleCard';
 import './CardList.css';
+import PropTypes from 'prop-types';
 
 
 const CardList = ({ peopleArray,
@@ -12,7 +13,6 @@ const CardList = ({ peopleArray,
                     buttonState,
                     toggleFavorites,
                     renderArray }) => {
-
 
   const array = renderArray.map((obj) => {
       if (obj.type === 'people') {
@@ -35,8 +35,15 @@ const CardList = ({ peopleArray,
         {array}
       </div>
       )
+}
 
-
+CardList.propTypes = {
+  peopleArray: PropTypes.oneOfType([PropTypes.number, PropTypes.array]),
+  planetArray: PropTypes.oneOfType([PropTypes.number, PropTypes.array]),
+  vehicleArray: PropTypes.oneOfType([PropTypes.number, PropTypes.array]),
+  buttonState: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
+  toggleFavorites: PropTypes.func.isRequired,
+  renderArray: PropTypes.array.isRequired
 }
 
 export default CardList;

@@ -1,5 +1,3 @@
-import React from 'react'
-
 class Movie {
   constructor(obj){
     this.title = obj.title,

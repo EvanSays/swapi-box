@@ -1,14 +1,15 @@
 import React from 'react'
 import './PersonCard'
 import './PersonCard.css';
+import PropTypes from 'prop-types';
 
 const PlanetCard = ({ planetInfo,
                       toggleFavorites,
                       cardLiked }) => {
 
-  if(planetInfo.residents.length > 1){
-    planetInfo.residents = planetInfo.residents.join(', ')
-  }
+  // if(planetInfo.residents.length > 1){
+  //   planetInfo.residents = planetInfo.residents.join(', ')
+  // }
 
   let favorited;
   !planetInfo.favorited ? favorited = 'normal-btn' : favorited = 'pink-btn'
@@ -23,6 +24,11 @@ const PlanetCard = ({ planetInfo,
       <button className={favorited} onClick={()=> toggleFavorites(planetInfo)}>Like</button>
     </div>
   )
+}
+
+PlanetCard.propTypes = {
+  planetInfo: PropTypes.object.isRequired,
+  toggleFavorites: PropTypes.func.isRequired
 }
 
 export default PlanetCard;
