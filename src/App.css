@@ -2,10 +2,13 @@
   /*display: flex;
   justify-content: space-between;
   text-align: center;*/
-  background-image: url('http://orig14.deviantart.net/7dc3/f/2012/187/1/4/simply_space__purple__by_thedeviantwizard-d567xfb.png');
+  background-image: url('https://i.ytimg.com/vi/JquobII5VjA/maxresdefault.jpg');
   background-repeat: no-repeat;
   background-size: cover;
-  height: 100vh;
+}
+
+.main-container {
+  display: flex;
 }
 
 

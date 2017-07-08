@@ -124,19 +124,21 @@ class App extends Component {
       );
     } else {
       return (
-        <div className="App">
+        <div className="App page-loader">
             <Button populatePeople={this.populatePeople}
               populatePlanetDetails={this.populatePlanetDetails}
               populateVehicles={this.populateVehicles}
               populateFavorites={this.populateFavorites}
               favorites={this.state.favorites} />
+            <div className="main-container">
               <ScrollText films={this.state.films} />
-          <CardList peopleArray={this.state.people}
-                    planetArray={this.state.planets}
-                    vehicleArray={this.state.vehicles}
-                    buttonState={this.state.buttonName}
-                    toggleFavorites={this.toggleFavorites}
-                    renderArray={this.state.renderArray} />
+              <CardList peopleArray={this.state.people}
+                        planetArray={this.state.planets}
+                        vehicleArray={this.state.vehicles}
+                        buttonState={this.state.buttonName}
+                        toggleFavorites={this.toggleFavorites}
+                        renderArray={this.state.renderArray} />
+            </div>
         </div>
       )
     }
