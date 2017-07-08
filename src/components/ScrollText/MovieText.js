@@ -1,5 +1,6 @@
 import React from 'react'
 import './MovieText.css'
+import PropTypes from 'prop-types';
 
 const MovieText = ({movie, randNum}) => {
   return (
@@ -15,6 +16,11 @@ const MovieText = ({movie, randNum}) => {
     </section>
 </div>
   )
+}
+
+MovieText.propTypes = {
+  movie: PropTypes.array.isRequired,
+  randNum: PropTypes.number.isRequired
 }
 
 export default MovieText;

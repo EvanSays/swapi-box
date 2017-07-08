@@ -8,6 +8,7 @@
   },
   "devDependencies": {
     "enzyme": "^2.9.1",
+    "prop-types": "^15.5.10",
     "react-scripts": "1.0.10"
   },
   "scripts": {

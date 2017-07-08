@@ -1,5 +1,6 @@
 import React from 'react'
 import './PersonCard'
+import PropTypes from 'prop-types';
 
 const VehicleCard = ( {vehicleInfo, toggleFavorites} ) => {
 
@@ -15,6 +16,11 @@ const VehicleCard = ( {vehicleInfo, toggleFavorites} ) => {
       <button className={favorited} onClick={()=> toggleFavorites(vehicleInfo)}>Like</button>
     </div>
   )
+}
+
+VehicleCard.propTypes = {
+  vehicleInfo: PropTypes.object.isRequired,
+  toggleFavorites: PropTypes.func.isRequired
 }
 
 export default VehicleCard;

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import ScrollText from './components/ScrollText/ScrollText';
 import Movie from './components/constructors/Movies';
-import api from './data/api';
+import Api from './data/api';
 import Button from './components/Button/Button';
 import CardList from './components/CardList/CardList'
 import HelperData from './helper'
@@ -10,7 +10,7 @@ import HelperData from './helper'
 class App extends Component {
   constructor() {
     super()
-    this.helper = new HelperData;
+    this.helper = new HelperData();
     this.state = {
       films: null,
       people: null,
@@ -30,7 +30,7 @@ class App extends Component {
 
   componentDidMount() {
     const movieArray = []
-    const movieFetch = fetch(api.films)
+    const movieFetch = fetch(Api.films)
     .then((res) => res.json())
     .then((info) => {
       info.results.forEach(obj => movieArray.push(new Movie(obj)))
