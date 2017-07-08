@@ -9,7 +9,7 @@ const VehicleCard = ( {vehicleInfo, toggleFavorites} ) => {
 
   return (
     <div className="card">
-      <h1>Name: {vehicleInfo.name}</h1>
+      <h3>Name: {vehicleInfo.name}</h3>
       <p>Model: {vehicleInfo.model}</p>
       <p>Class: {vehicleInfo.vehicle_class}</p>
       <p>Passengers: {vehicleInfo.passengers}</p>

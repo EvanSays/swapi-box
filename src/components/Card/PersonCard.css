@@ -1,17 +1,22 @@
 .card {
   width: 250px;
   background: #fff;
+  opacity: 0.8;
   border-radius: 3px;
-  padding: 0 5px 5px 5px;
+  padding: 0 5px 5px 20px;
   margin-bottom: 10px;
-  height: 300px;
+  height: 350px;
 }
 
 .normal-btn {
   background-color: blue;
-
 }
 
 .pink-btn {
   background-color: pink;
+}
+
+.normal-btn,
+.pink-btn {
+  float: right;
 }
