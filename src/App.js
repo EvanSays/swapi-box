@@ -57,13 +57,17 @@ class App extends Component {
       this.setState({
         favorites
       })
+    } else {
+      const find = favorites.find(x => x.id === info.id);
+      if(find === undefined) {
+        favorites.push(info)
+        this.setState({
+          favorites
+        })
+      }
+      return
     }
-  
-
-
   }
-
-
 
 
   populateFavorites() {
@@ -74,21 +78,40 @@ class App extends Component {
   }
 
   populatePeople() {
-    this.helper.getPeople(this)
+    if(this.state.people === null) {
+      this.helper.getPeople(this)
+    } else {
+      this.setState({
+        renderArray: this.state.people
+      })
+    }
     this.setState({
       buttonName: 'people'
     })
   }
 
   populatePlanetDetails() {
-    this.helper.getPlanets(this)
+    console.log(this.state.planets);
+    if (this.state.planets === null) {
+      this.helper.getPlanets(this)
+    } else {
+      this.setState({
+        renderArray: this.state.planets
+      })
+    }
     this.setState({
       buttonName: 'planets'
     })
   }
 
   populateVehicles() {
-    this.helper.getVehicles(this)
+    if (this.state.vehicles === null) {
+      this.helper.getVehicles(this)
+    } else {
+      this.setState({
+        renderArray: this.state.vehicles
+      })
+    }
     this.setState({
       buttonName: 'vehicles'
     })

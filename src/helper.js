@@ -47,16 +47,17 @@ export default class HelperData {
     .then(res => res.json())
     .then(planets => {
       const unresolvedPlanets = planets.results.map((planet) => {
-        return Object.assign(planet, {
-          type: 'planet',
-          favorited: false,
-          id: Math.round(Date.now() * Math.random())
-        })
         const residentNames = planet.residents.map((resident) => {
           return fetch(resident).then(res => res.json()).then(data => data.name)
         })
         return Promise.all(residentNames).then(data => {
-          return Object.assign(planet, {residents: data})
+          if(data.length === 0){
+            data = ['Uninhabited']
+          }
+          return Object.assign(planet, {residents: data,
+            type: 'planet',
+            favorited: false,
+            id: Math.round(Date.now() * Math.random())})
         })
       })
       return Promise.all(unresolvedPlanets)

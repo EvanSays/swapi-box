@@ -6,6 +6,10 @@ const PlanetCard = ({ planetInfo,
                       toggleFavorites,
                       cardLiked }) => {
 
+  if(planetInfo.residents.length > 1){
+    planetInfo.residents = planetInfo.residents.join(', ')
+  }
+
   let favorited;
   !planetInfo.favorited ? favorited = 'normal-btn' : favorited = 'pink-btn'
 
