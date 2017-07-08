@@ -4,14 +4,14 @@ import './Button.css';
 const Button = ({populatePeople, populatePlanetDetails, populateVehicles, populateFavorites, favorites}) => {
   const favCount = favorites.length;
   return (
-    <div>
+    <header className="button-container">
       <button onClick={() => populatePeople()}>People</button>
       <button onClick={() => populatePlanetDetails()}>Planets</button>
       <button onClick={() => populateVehicles()}>Vehicles</button>
-      <button onClick={() => populateFavorites()}>Favorites
-      <div>{favCount}</div>
+      <button className="fave-btn" onClick={() => populateFavorites()}>Favorites
+      <div className="counter">{favCount}</div>
       </button>
-    </div>
+    </header>
   )
 }
 

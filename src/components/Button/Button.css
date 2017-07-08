@@ -1,11 +1,26 @@
 button {
-  display: flex;
   color: #000;
-  background-color: #fff;
-  flex-direction: row;
-  height: 20px;
+   background-color: #fff;
+   height: 40px;
+   margin-right: 20px;
+   font-size: 16px;
+   padding: 5px;
+   border: none;
+   border-radius: 1px;
 }
 
-.btn-container {
+.button-container {
   display: flex;
+  justify-content: flex-end;
+  height: 100px;
+  border: 1px solid pink;
+  align-items: center;
+}
+
+.fave-btn {
+  display: flex;
+}
+
+.counter {
+  margin-left: 3px;
 }

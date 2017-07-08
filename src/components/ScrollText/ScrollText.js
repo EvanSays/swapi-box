@@ -1,13 +1,14 @@
 import React from 'react';
 import MovieText from './MovieText';
+import './ScrollText.css'
 
 const ScrollText = ({films}) => {
   const randNum = Math.floor((Math.random() * films.length))
 
   return (
-    <div>
+    <aside className="scroll-text">
       <MovieText movie={films} randNum={randNum} />
-    </div>
+    </aside>
   )
 }
 
