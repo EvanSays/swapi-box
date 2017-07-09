@@ -9,14 +9,29 @@
 }
 
 .normal-btn {
-  background-color: blue;
+  background-color: transparent;
 }
 
 .pink-btn {
-  background-color: pink;
+  background-color: red;
+  transition: all 0.2s;
 }
 
 .normal-btn,
 .pink-btn {
   float: right;
+  height: 55px;
+  width: 55px;
+  border-radius: 100%;
+}
+
+.pink-btn:hover {
+  transition: all 0.2s;
+  height: 60px;
+  width: 60px;
+}
+
+.fave {
+  width: 35px;
+  transition: 0.2s;
 }

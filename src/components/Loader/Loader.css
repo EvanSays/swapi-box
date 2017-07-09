@@ -1,0 +1,14 @@
+.loading-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.loading {
+  font-size: 100px;
+  color: white;
+}
+
+.luke {
+  width: 200px;
+}
