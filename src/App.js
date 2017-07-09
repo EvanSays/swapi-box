@@ -4,6 +4,7 @@ import ScrollText from './components/ScrollText/ScrollText';
 import Button from './components/Button/Button';
 import CardList from './components/CardList/CardList'
 import HelperData from './helper'
+import lightsaber from './assets/lightsaber.png'
 
 class App extends Component {
   constructor() {
@@ -14,6 +15,7 @@ class App extends Component {
       people: null,
       planets: null,
       vehicles: null,
+      loading: false,
       renderArray: [],
       favorites: []
     }
@@ -88,8 +90,10 @@ class App extends Component {
         <div></div>
       );
     } else {
+      const loading = !this.state.loading ? 'loading-false' : 'loading-true'
       return (
         <div className="App page-loader">
+          <img src={lightsaber} className={loading} alt="lightsaber"/>
             <Button populatePeople={this.populatePeople}
               populatePlanets={this.populatePlanets}
               populateVehicles={this.populateVehicles}

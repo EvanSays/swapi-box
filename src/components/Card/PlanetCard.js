@@ -2,13 +2,15 @@ import React from 'react'
 import './PersonCard'
 import './PersonCard.css';
 import PropTypes from 'prop-types';
+import starTrue from '../../assets/StarTrue.svg'
+import starFalse from '../../assets/StarFalse.svg'
 
 const PlanetCard = ({ planetInfo,
                       toggleFavorites,
                       cardLiked }) => {
 
   let favorited;
-  !planetInfo.favorited ? favorited = 'normal-btn' : favorited = 'pink-btn'
+  !planetInfo.favorited ? favorited = [starTrue] : favorited = [starFalse]
 
   return (
     <div className="card">
@@ -17,7 +19,9 @@ const PlanetCard = ({ planetInfo,
       <p>Population: {planetInfo.population}</p>
       <p>Climate: {planetInfo.climate}</p>
       <p>Residents: {planetInfo.residents}</p>
-      <button className={favorited} onClick={()=> toggleFavorites(planetInfo)}>Like</button>
+      <button className="star-button" onClick={()=> toggleFavorites(planetInfo)}>
+        <img src={favorited} alt=""/>
+      </button>
     </div>
   )
 }
