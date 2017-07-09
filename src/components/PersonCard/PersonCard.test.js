@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow, mount } from 'enzyme';
-import PersonCard from '../components/Card/PersonCard';
+import PersonCard from './PersonCard';
 
 describe('PersonCard', () => {
   let component;
@@ -39,7 +39,7 @@ describe('PersonCard', () => {
   })
 
   it('should have a button that toggles favorites', () => {
-    const button = component.find('.star-button')  
+    const button = component.find('.star-button')
 
     expect(mockFn).toHaveBeenCalledTimes(0)
     button.simulate('click')

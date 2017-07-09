@@ -1,5 +1,5 @@
 import React from 'react';
-import MovieText from './MovieText';
+import MovieText from '../MovieText/MovieText';
 import './ScrollText.css'
 import PropTypes from 'prop-types';
 

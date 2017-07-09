@@ -1,9 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { shallow, mount } from 'enzyme';
-import App from '../App';
+import App from './App';
 import fetchMock from 'fetch-mock'
-import { mockMovies, mockPeople } from './testData.js'
+import { mockMovies, mockPeople } from '../../data/testData.js'
 
 describe('App', () => {
 

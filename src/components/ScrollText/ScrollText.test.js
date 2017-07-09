@@ -1,7 +1,7 @@
 import React from 'react'
 import { shallow, mount } from 'enzyme'
-import ScrollText from '../components/ScrollText/ScrollText'
-import { moviesArray } from './testData.js'
+import ScrollText from './ScrollText'
+import { moviesArray } from '../../data/testData.js'
 
 
 describe('ScrollText', () => {

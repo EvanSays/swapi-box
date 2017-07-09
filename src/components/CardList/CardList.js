@@ -1,9 +1,8 @@
 import React from 'react';
 import './CardList.css';
-import PersonCard from '../Card/PersonCard';
-import PlanetCard from '../Card/PlanetCard';
-import VehicleCard from '../Card/VehicleCard';
-import './CardList.css';
+import PersonCard from '../PersonCard/PersonCard';
+import PlanetCard from '../PlanetCard/PlanetCard';
+import VehicleCard from '../VehicleCard/VehicleCard';
 import PropTypes from 'prop-types';
 import Loader from '../Loader/Loader'
 

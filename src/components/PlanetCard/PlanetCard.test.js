@@ -1,6 +1,6 @@
 import React from 'react'
 import { shallow, mount } from 'enzyme'
-import PlanetCard from '../components/Card/PlanetCard'
+import PlanetCard from './PlanetCard'
 
 
 describe('PlanetCard', () => {

@@ -1,5 +1,5 @@
 import React from 'react'
-import './PersonCard'
+import '../PersonCard/PersonCard.css'
 import PropTypes from 'prop-types';
 import starTrue from '../../assets/StarTrue.svg'
 import starFalse from '../../assets/StarFalse.svg'
