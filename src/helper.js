@@ -1,12 +1,31 @@
-
+import Api from './data/api';
+import Movie from './components/constructors/Movies'
 
 export default class HelperData {
 
-  getPeople(appComponent) {
-    fetch('https://swapi.co/api/people/').then(res => res.json()).then(data => {
-      appComponent.setState({
-        loading: true
+
+  getMovies(app) {
+    const movieArray = []
+    const movieFetch = fetch(Api.films)
+    .then((res) => res.json())
+    .then((info) => {
+      info.results.forEach(obj => movieArray.push(new Movie(obj)))
+    })
+    .catch(function(error) {
+      console.log('Request failed:', error);
+    })
+
+    Promise.all([movieFetch])
+    .then(values => {
+      const randNum = Math.floor((Math.random() * movieArray.length))
+      app.setState ({
+          films: movieArray[randNum]
       })
+    })
+  }
+
+  getPeople(app) {
+    fetch(Api.people).then(res => res.json()).then(data => {
       const unresolvedPlaces = data.results.map(person => {
         return fetch(person.homeworld).then(res => res.json())
       })
@@ -39,15 +58,14 @@ export default class HelperData {
         })
 
       }).then((final) => {
-        appComponent.setState({people: final,
-                               renderArray: final,
-                               loading: false })
+        app.setState({people: final,
+                               renderArray: final})
       })
     })
   }
 
   getPlanets(app) {
-    fetch('http://swapi.co/api/planets/')
+    fetch(Api.planets)
     .then(res => res.json())
     .then(planets => {
       const unresolvedPlanets = planets.results.map((planet) => {
@@ -75,7 +93,7 @@ export default class HelperData {
   }
 
   getVehicles(app) {
-    fetch('http://swapi.co/api/vehicles/')
+    fetch(Api.vehicles)
     .then(res => res.json())
     .then(vehicles => {
       const unresolvedVehicles = vehicles.results.map(vehicle => {
@@ -92,10 +110,6 @@ export default class HelperData {
                                                                        renderArray: res,
                                                                        loading: false }))
     })
-  }
-
-  getFavorites(app) {
-
   }
 
 }
