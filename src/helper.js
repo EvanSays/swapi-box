@@ -3,6 +3,7 @@ import Movie from './components/constructors/Movies'
 
 export default class HelperData {
 
+
   getMovies(app) {
     app.setState({loading: true});
     const movieArray = []
@@ -73,6 +74,9 @@ export default class HelperData {
     .then(res => res.json())
     .then(planets => {
       const unresolvedPlanets = planets.results.map((planet) => {
+        app.setState({
+          loading: true
+        })
         const residentNames = planet.residents.map((resident) => {
           return fetch(resident).then(res => res.json()).then(data => data.name)
         })
@@ -99,6 +103,9 @@ export default class HelperData {
     .then(res => res.json())
     .then(vehicles => {
       const unresolvedVehicles = vehicles.results.map(vehicle => {
+        app.setState({
+          loading: true
+        })
         return Object.assign(vehicle, {
           type: 'vehicle',
           favorited: false,
@@ -109,10 +116,6 @@ export default class HelperData {
                                                                        renderArray: res,
                                                                        loading: false}))
     })
-  }
-
-  getFavorites(app) {
-
   }
 
 }

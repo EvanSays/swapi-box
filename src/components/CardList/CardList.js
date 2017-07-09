@@ -5,21 +5,22 @@ import PlanetCard from '../Card/PlanetCard';
 import VehicleCard from '../Card/VehicleCard';
 import './CardList.css';
 import PropTypes from 'prop-types';
-
+import Loader from '../Loader/Loader'
 
 const CardList = ({ peopleArray,
                     planetArray,
                     vehicleArray,
                     buttonState,
                     toggleFavorites,
-                    renderArray }) => {
+                    renderArray,
+                    loading }) => {
 
   const array = renderArray.map((obj) => {
+
       if (obj.type === 'people') {
       return <PersonCard key={Math.round(Date.now() * Math.random())}
                          toggleFavorites={toggleFavorites}
-                        peopleInfo={obj} />
-
+                         peopleInfo={obj} />
       } else if (obj.type === 'planet') {
         return <PlanetCard key={Math.round(Date.now() * Math.random())}
                            toggleFavorites={toggleFavorites}
@@ -30,9 +31,10 @@ const CardList = ({ peopleArray,
                            vehicleInfo={obj} />
       }
     })
+    const render = loading ? <Loader /> : array
     return (
       <div className="card-container">
-        {array}
+        {render}
       </div>
       )
 }

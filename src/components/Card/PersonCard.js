@@ -5,7 +5,7 @@ import starTrue from '../../assets/StarTrue.svg'
 import starFalse from '../../assets/StarFalse.svg'
 
 const PersonCard = ({peopleInfo, toggleFavorites}) => {
-  
+
   let favorited;
   !peopleInfo.favorited ? favorited = [starTrue] : favorited = [starFalse]
 
