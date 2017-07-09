@@ -15,9 +15,8 @@ export const peopleArray = [
     name: "R2D2",
     population: "200000",
     species: "Droid",
-    type: "peoplle"
+    type: "people"
   }
-
 ]
 
 export const planetsArray = [
@@ -26,15 +25,10 @@ export const planetsArray = [
     terrain: "grasslands, mountains",
     population: "2000000000",
     climate: "temperate",
-    residents: "Leia Organa, Bail Prestor Organa, Raymus Antilles"
+    residents: "Leia Organa, Bail Prestor Organa, Raymus Antilles",
+    type: "planet"
+
   },
-  {
-    name: "Yavin IV",
-    terrain: "grasslands, mountains",
-    population: "1000",
-    climate: "temperate, tropical",
-    residents: "Uninhabited"
-  }
 ]
 
 export const vehiclesArray = [
@@ -42,12 +36,14 @@ export const vehiclesArray = [
     model: "T-16 skyhopper",
     name: "T-16 skyhopper",
     passengers: "1",
-    vehicle_class: "repulsorcraft"
+    vehicle_class: "repulsorcraft",
+    type: "vehicle"
   },
   {
     model: "Digger Crawler",
     name: "Sand Crawler",
     passengers: "30",
-    vehicle_class: "wheeled"
+    vehicle_class: "wheeled",
+    type: "vehicle"
   }
 ]
