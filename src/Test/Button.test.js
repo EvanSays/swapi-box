@@ -4,7 +4,7 @@ import Button from '../components/Button/Button'
 
 
 describe('person button', () => {
-  let component;
+  let component
   let mockFn1
   let mockFn2
   let mockFn3
