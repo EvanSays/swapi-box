@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
 import ScrollText from './components/ScrollText/ScrollText';
-import Movie from './components/constructors/Movies';
-import Api from './data/api';
 import Button from './components/Button/Button';
 import CardList from './components/CardList/CardList'
 import HelperData from './helper'
@@ -16,35 +14,20 @@ class App extends Component {
       people: null,
       planets: null,
       vehicles: null,
-      buttonName: null,
       renderArray: [],
       favorites: []
     }
     this.populatePeople = this.populatePeople.bind(this)
-    this.populatePlanetDetails = this.populatePlanetDetails.bind(this)
+    this.populatePlanets = this.populatePlanets.bind(this)
     this.populateVehicles = this.populateVehicles.bind(this)
     this.populateFavorites = this.populateFavorites.bind(this)
     this.toggleFavorites = this.toggleFavorites.bind(this)
-
   }
 
   componentDidMount() {
-    const movieArray = []
-    const movieFetch = fetch(Api.films)
-    .then((res) => res.json())
-    .then((info) => {
-      info.results.forEach(obj => movieArray.push(new Movie(obj)))
-    })
-    .catch(function(error) {
-      console.log('Request failed:', error);
-    })
-
-    Promise.all([movieFetch])
-    .then(values => {
-      this.setState ({
-          films: movieArray
-      })
-    })
+    if(this.state.films == null){
+      this.helper.getMovies(this)
+    }
   }
 
   toggleFavorites(info) {
@@ -69,56 +52,34 @@ class App extends Component {
   }
 
   favSetState(favorites) {
-    this.setState({
-      favorites
-    })
+    this.setTheState('favorites', favorites)
   }
 
 
   populateFavorites() {
     const favorites = this.state.favorites
-    this.setState({
-      renderArray: favorites,
-    })
+    this.setTheState('renderArray', favorites)
   }
 
   populatePeople() {
-    if(this.state.people === null) {
-      this.helper.getPeople(this)
-    } else {
-      this.setState({
-        renderArray: this.state.people
-      })
-    }
-    // this.setState({
-    //   buttonName: 'people'
-    // })
+    const people = this.state.people
+    !people ? this.helper.getPeople(this) : this.setTheState('renderArray', people)
   }
 
-  populatePlanetDetails() {
-    if (this.state.planets === null) {
-      this.helper.getPlanets(this)
-    } else {
-      this.setState({
-        renderArray: this.state.planets
-      })
-    }
-    // this.setState({
-    //   buttonName: 'planets'
-    // })
+  populatePlanets() {
+    const planets = this.state.planets
+    !planets ? this.helper.getPlanets(this) : this.setTheState('renderArray', planets)
   }
 
   populateVehicles() {
-    if (this.state.vehicles === null) {
-      this.helper.getVehicles(this)
-    } else {
-      this.setState({
-        renderArray: this.state.vehicles
-      })
-    }
-    // this.setState({
-    //   buttonName: 'vehicles'
-    // })
+    const vehicles = this.state.vehicles
+    !vehicles ? this.helper.getVehicles(this) : this.setTheState('renderArray', vehicles)
+  }
+
+  setTheState(name, data) {
+    this.setState({
+      [name]: data
+    })
   }
 
   render() {
@@ -130,7 +91,7 @@ class App extends Component {
       return (
         <div className="App page-loader">
             <Button populatePeople={this.populatePeople}
-              populatePlanetDetails={this.populatePlanetDetails}
+              populatePlanets={this.populatePlanets}
               populateVehicles={this.populateVehicles}
               populateFavorites={this.populateFavorites}
               favorites={this.state.favorites} />
@@ -139,7 +100,6 @@ class App extends Component {
               <CardList peopleArray={this.state.people}
                         planetArray={this.state.planets}
                         vehicleArray={this.state.vehicles}
-                        buttonState={this.state.buttonName}
                         toggleFavorites={this.toggleFavorites}
                         renderArray={this.state.renderArray} />
             </div>

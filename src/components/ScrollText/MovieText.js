@@ -2,16 +2,16 @@ import React from 'react'
 import './MovieText.css'
 import PropTypes from 'prop-types';
 
-const MovieText = ({movie, randNum}) => {
+const MovieText = ({movie}) => {
   return (
   <div className="movie-text">
     <section className="star-wars">
       <div className="crawl">
         <div className="title">
-          <p>{movie[randNum].opening_crawl}</p>
+          <p>{movie.opening_crawl}</p>
         </div>
-        <h1 className="title">{movie[randNum].title}</h1>
-        <p className="date">{movie[randNum].release_date}</p>
+        <h1 className="title">{movie.title}</h1>
+        <p className="date">{movie.release_date}</p>
       </div>
     </section>
 </div>
@@ -19,8 +19,7 @@ const MovieText = ({movie, randNum}) => {
 }
 
 MovieText.propTypes = {
-  movie: PropTypes.array.isRequired,
-  randNum: PropTypes.number.isRequired
+  movie: PropTypes.object.isRequired
 }
 
 export default MovieText;
