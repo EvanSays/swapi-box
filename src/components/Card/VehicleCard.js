@@ -11,10 +11,10 @@ const VehicleCard = ( {vehicleInfo, toggleFavorites} ) => {
 
   return (
     <div className="card">
-      <h3>Name: {vehicleInfo.name}</h3>
-      <p>Model: {vehicleInfo.model}</p>
-      <p>Class: {vehicleInfo.vehicle_class}</p>
-      <p>Passengers: {vehicleInfo.passengers}</p>
+      <h3 className='vehicle-name'>Name: {vehicleInfo.name}</h3>
+      <p className='vehicle-model'>Model: {vehicleInfo.model}</p>
+      <p className='vehicle-vehicle'>Class: {vehicleInfo.vehicle_class}</p>
+      <p className='vehicle-passenger'>Passengers: {vehicleInfo.passengers}</p>
       <button className="star-button" onClick={()=> toggleFavorites(vehicleInfo)}>
         <img src={favorited} alt=""/>
       </button>
