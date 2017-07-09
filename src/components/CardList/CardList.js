@@ -14,7 +14,6 @@ const CardList = ({ peopleArray,
                     toggleFavorites,
                     renderArray,
                     loading }) => {
-                      console.log('loading',loading);
 
   const array = renderArray.map((obj) => {
 
