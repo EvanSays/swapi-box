@@ -14,16 +14,24 @@
 
 .pink-btn {
   background-color: red;
+  transition: all 0.2s;
 }
 
 .normal-btn,
 .pink-btn {
   float: right;
-  height: 50px;
-  width: 50px;
+  height: 55px;
+  width: 55px;
   border-radius: 100%;
 }
 
+.pink-btn:hover {
+  transition: all 0.2s;
+  height: 60px;
+  width: 60px;
+}
+
 .fave {
-  width: 40px;
+  width: 35px;
+  transition: 0.2s;
 }
