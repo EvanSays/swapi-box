@@ -54,6 +54,7 @@ export default class HelperData {
           if(data.length === 0){
             data = ['Uninhabited']
           }
+          data = data.join(', ')
           return Object.assign(planet, {residents: data,
             type: 'planet',
             favorited: false,

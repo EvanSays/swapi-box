@@ -54,19 +54,24 @@ class App extends Component {
 
     if(favorites.length === 0) {
       favorites.push(info)
-      this.setState({
-        favorites
-      })
+      this.favSetState(favorites);
     } else {
-      const find = favorites.find(x => x.id === info.id);
-      if(find === undefined) {
+      const index = favorites.findIndex(x => x.id === info.id);
+      if(index === -1) {
         favorites.push(info)
-        this.setState({
-          favorites
-        })
+        this.favSetState(favorites);
+      } else {
+        favorites.splice(index, 1);
+        this.favSetState(favorites);
       }
       return
     }
+  }
+
+  favSetState(favorites) {
+    this.setState({
+      favorites
+    })
   }
 
 
@@ -85,13 +90,12 @@ class App extends Component {
         renderArray: this.state.people
       })
     }
-    this.setState({
-      buttonName: 'people'
-    })
+    // this.setState({
+    //   buttonName: 'people'
+    // })
   }
 
   populatePlanetDetails() {
-    console.log(this.state.planets);
     if (this.state.planets === null) {
       this.helper.getPlanets(this)
     } else {
@@ -99,9 +103,9 @@ class App extends Component {
         renderArray: this.state.planets
       })
     }
-    this.setState({
-      buttonName: 'planets'
-    })
+    // this.setState({
+    //   buttonName: 'planets'
+    // })
   }
 
   populateVehicles() {
@@ -112,9 +116,9 @@ class App extends Component {
         renderArray: this.state.vehicles
       })
     }
-    this.setState({
-      buttonName: 'vehicles'
-    })
+    // this.setState({
+    //   buttonName: 'vehicles'
+    // })
   }
 
   render() {
