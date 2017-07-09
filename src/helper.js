@@ -113,9 +113,7 @@ export default class HelperData {
         })
       });
       return Promise.all(unresolvedVehicles).then(res => app.setState({vehicles: res,
-                                                                       renderArray: res,
-                                                                       loading: false}))
+                                                                       renderArray: res,                                                                   loading: false}))
     })
   }
-
 }

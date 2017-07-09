@@ -8,10 +8,10 @@ const MovieText = ({movie}) => {
     <section className="star-wars">
       <div className="crawl">
         <div className="title">
-          <p>{movie.opening_crawl}</p>
+          <p className="opening-crawl-text">{movie.opening_crawl}</p>
         </div>
-        <h1 className="title">{movie.title}</h1>
-        <p className="date">{movie.release_date}</p>
+        <h1 className="movie-title">{movie.title}</h1>
+        <p className="movie-date">{movie.release_date}</p>
       </div>
     </section>
 </div>
