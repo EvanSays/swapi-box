@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import { shallow, mount } from 'enzyme';
 import App from '../App';
 import fetchMock from 'fetch-mock'
-import { mockMovies } from './testData.js'
+import { mockMovies, mockPeople } from './testData.js'
 
 describe('App', () => {
 
@@ -27,7 +27,7 @@ describe('App', () => {
     const component = mount(<App/>);
     // await wrapper.update() DOESN'T WORK
     await resolveAfter2Seconds(); // WORKS
-    console.log(component.debug());
+    // console.log(component.debug());
     expect(fetchMock.called()).toEqual(true);
 
     expect(component.state().films.title).toEqual('A New Hope');
@@ -35,5 +35,28 @@ describe('App', () => {
     expect(component.state().films.release_date).toEqual('1977-05-25');
   });
 
-  
+
+    it('should add a favorite to the favorites array when star is clicked', async () => {
+      fetchMock.get('http://swapi.co/api/films/', {
+        status: 500,
+        body: mockMovies,
+      });
+      const component = mount(<App/>);
+      // await wrapper.update() DOESN'T WORK
+      await resolveAfter2Seconds(); // WORKS
+      // console.log(component.debug());
+
+      const peoplebtn = component.find('.populate-people')
+      peoplebtn.simulate('click')
+      fetchMock.get('http://swapi.co/api/people/', {
+        status: 500,
+        body: mockPeople
+      });
+
+
+
+
+    })
+
+
 });

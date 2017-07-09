@@ -12,7 +12,6 @@ describe('CardList', () => {
   let componentVehicle;
   let componentLoader
 
-
   beforeEach(() => {
     mockFn = jest.fn()
     componentPeople = mount(<CardList peopleArray={peopleArray}
@@ -72,8 +71,6 @@ describe('CardList', () => {
   })
 
   it('should display loader when data is not yet available', () => {
-
-    console.log(componentLoader.debug());
 
     expect(componentLoader.find('.loading-section').length).toEqual(1)
   })
