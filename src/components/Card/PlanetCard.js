@@ -14,11 +14,11 @@ const PlanetCard = ({ planetInfo,
 
   return (
     <div className="card">
-      <h3>Name: {planetInfo.name}</h3>
-      <p>Terrain: {planetInfo.terrain}</p>
-      <p>Population: {planetInfo.population}</p>
-      <p>Climate: {planetInfo.climate}</p>
-      <p>Residents: {planetInfo.residents}</p>
+      <h3 className='planet-name'>Name: {planetInfo.name}</h3>
+      <p className='planet-terrain'>Terrain: {planetInfo.terrain}</p>
+      <p className='planet-population'>Population: {planetInfo.population}</p>
+      <p className='planet-climate'>Climate: {planetInfo.climate}</p>
+      <p className='planet-residents'>Residents: {planetInfo.residents}</p>
       <button className="star-button" onClick={()=> toggleFavorites(planetInfo)}>
         <img src={favorited} alt=""/>
       </button>
