@@ -5,6 +5,7 @@ export default class HelperData {
 
 
   getMovies(app) {
+    app.setState({loading: true});
     const movieArray = []
     const movieFetch = fetch(Api.films)
     .then((res) => res.json())
@@ -19,12 +20,14 @@ export default class HelperData {
     .then(values => {
       const randNum = Math.floor((Math.random() * movieArray.length))
       app.setState ({
-          films: movieArray[randNum]
+          films: movieArray[randNum],
+          loading: false
       })
     })
   }
 
   getPeople(app) {
+    app.setState({loading: true});
     fetch(Api.people).then(res => res.json()).then(data => {
       const unresolvedPlaces = data.results.map(person => {
         return fetch(person.homeworld).then(res => res.json())
@@ -59,12 +62,14 @@ export default class HelperData {
 
       }).then((final) => {
         app.setState({people: final,
-                               renderArray: final})
+                      renderArray: final,
+                      loading: false})
       })
     })
   }
 
   getPlanets(app) {
+    app.setState({loading: true});
     fetch(Api.planets)
     .then(res => res.json())
     .then(planets => {
@@ -93,6 +98,7 @@ export default class HelperData {
   }
 
   getVehicles(app) {
+    app.setState({loading: true});
     fetch(Api.vehicles)
     .then(res => res.json())
     .then(vehicles => {
@@ -108,7 +114,7 @@ export default class HelperData {
       });
       return Promise.all(unresolvedVehicles).then(res => app.setState({vehicles: res,
                                                                        renderArray: res,
-                                                                       loading: false }))
+                                                                       loading: false}))
     })
   }
 

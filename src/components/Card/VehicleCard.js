@@ -1,11 +1,13 @@
 import React from 'react'
 import './PersonCard'
 import PropTypes from 'prop-types';
+import starTrue from '../../assets/StarTrue.svg'
+import starFalse from '../../assets/StarFalse.svg'
 
 const VehicleCard = ( {vehicleInfo, toggleFavorites} ) => {
 
   let favorited;
-  !vehicleInfo.favorited ? favorited = 'normal-btn' : favorited = 'pink-btn'
+  !vehicleInfo.favorited ? favorited = [starTrue] : favorited = [starFalse]
 
   return (
     <div className="card">
@@ -13,7 +15,9 @@ const VehicleCard = ( {vehicleInfo, toggleFavorites} ) => {
       <p>Model: {vehicleInfo.model}</p>
       <p>Class: {vehicleInfo.vehicle_class}</p>
       <p>Passengers: {vehicleInfo.passengers}</p>
-      <button className={favorited} onClick={()=> toggleFavorites(vehicleInfo)}><img className="fave" src={require('../../assets/StarWarsFave.svg')} /></button>
+      <button className="star-button" onClick={()=> toggleFavorites(vehicleInfo)}>
+        <img src={favorited} alt=""/>
+      </button>
     </div>
   )
 }
