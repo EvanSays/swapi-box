@@ -18,7 +18,8 @@ class App extends Component {
       vehicles: null,
       buttonName: null,
       renderArray: [],
-      favorites: []
+      favorites: [],
+      loading: false
     }
     this.populatePeople = this.populatePeople.bind(this)
     this.populatePlanetDetails = this.populatePlanetDetails.bind(this)
@@ -141,7 +142,8 @@ class App extends Component {
                         vehicleArray={this.state.vehicles}
                         buttonState={this.state.buttonName}
                         toggleFavorites={this.toggleFavorites}
-                        renderArray={this.state.renderArray} />
+                        renderArray={this.state.renderArray}
+                        loading={this.state.loading}/>
             </div>
         </div>
       )

@@ -9,14 +9,21 @@
 }
 
 .normal-btn {
-  background-color: blue;
+  background-color: transparent;
 }
 
 .pink-btn {
-  background-color: pink;
+  background-color: red;
 }
 
 .normal-btn,
 .pink-btn {
   float: right;
+  height: 50px;
+  width: 50px;
+  border-radius: 100%;
+}
+
+.fave {
+  width: 40px;
 }

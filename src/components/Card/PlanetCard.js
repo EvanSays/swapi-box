@@ -17,7 +17,7 @@ const PlanetCard = ({ planetInfo,
       <p>Population: {planetInfo.population}</p>
       <p>Climate: {planetInfo.climate}</p>
       <p>Residents: {planetInfo.residents}</p>
-      <button className={favorited} onClick={()=> toggleFavorites(planetInfo)}>Like</button>
+      <button className={favorited} onClick={()=> toggleFavorites(planetInfo)}><img className="fave" src={require('../../assets/StarWarsFave.svg')} /></button>
     </div>
   )
 }

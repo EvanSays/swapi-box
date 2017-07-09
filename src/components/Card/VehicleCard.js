@@ -13,7 +13,7 @@ const VehicleCard = ( {vehicleInfo, toggleFavorites} ) => {
       <p>Model: {vehicleInfo.model}</p>
       <p>Class: {vehicleInfo.vehicle_class}</p>
       <p>Passengers: {vehicleInfo.passengers}</p>
-      <button className={favorited} onClick={()=> toggleFavorites(vehicleInfo)}>Like</button>
+      <button className={favorited} onClick={()=> toggleFavorites(vehicleInfo)}><img className="fave" src={require('../../assets/StarWarsFave.svg')} /></button>
     </div>
   )
 }

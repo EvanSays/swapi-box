@@ -13,7 +13,7 @@ const PersonCard = ({peopleInfo, toggleFavorites}) => {
       <p>Species: {peopleInfo.species}</p>
       <p>Language: {peopleInfo.language}</p>
       <p>Population: {peopleInfo.population}</p>
-      <button className={favorited} onClick={()=> toggleFavorites(peopleInfo)}>Like</button>
+      <button className={favorited} onClick={()=> toggleFavorites(peopleInfo)}><img className="fave" src={require('../../assets/StarWarsFave.svg')} /></button>
     </div>
   )
 }

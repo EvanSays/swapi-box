@@ -1,6 +1,14 @@
+.align {
+  display: flex;
+  flex-direction: column;
+}
 .card-container {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
   width: 80%;
+}
+
+.fyi {
+  color: #fff;
 }
