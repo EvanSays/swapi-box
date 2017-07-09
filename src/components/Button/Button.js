@@ -9,9 +9,9 @@ const Button = ({populatePeople, populatePlanets, populateVehicles, populateFavo
     <div className="header-container">
       <div className="logo">swapibox</div>
       <header className="button-container">
-        <button onClick={() => populatePeople()}>People</button>
-        <button onClick={() => populatePlanets()}>Planets</button>
-        <button onClick={() => populateVehicles()}>Vehicles</button>
+        <button className="populate-people" onClick={() => populatePeople()}>People</button>
+        <button className="populate-planet" onClick={() => populatePlanets()}>Planets</button>
+        <button className="populate-vehicle" onClick={() => populateVehicles()}>Vehicles</button>
         <button className="fave-btn" onClick={() => populateFavorites()}>Favorites
         <div className="counter">{favCount}</div>
         </button>
