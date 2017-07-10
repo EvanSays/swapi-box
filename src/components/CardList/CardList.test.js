@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow, mount } from 'enzyme';
-import CardList from '../components/CardList/CardList';
-import { peopleArray, planetsArray, vehiclesArray } from './testData'
+import CardList from './CardList';
+import { peopleArray, planetsArray, vehiclesArray } from '../../data/testData'
 
 describe('CardList', () => {
   let mockFn

@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import './App.css';
-import ScrollText from './components/ScrollText/ScrollText';
-import Button from './components/Button/Button';
-import CardList from './components/CardList/CardList'
-import HelperData from './helper'
+import ScrollText from '../ScrollText/ScrollText';
+import Button from '../Button/Button';
+import CardList from '../CardList/CardList'
+import HelperData from '../../helper'
 
 class App extends Component {
   constructor() {
