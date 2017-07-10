@@ -16,6 +16,7 @@
   width: 50px;
   background: #222222;
   border: none;
+  outline: none;
 }
 
 .normal-btn,
