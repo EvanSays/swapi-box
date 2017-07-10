@@ -36,7 +36,7 @@ describe('App', () => {
   });
 
 
-    it('should add a favorite to the favorites array when star is clicked', async () => {
+    it.skip('should add a favorite to the favorites array when star is clicked', async () => {
       fetchMock.get('http://swapi.co/api/films/', {
         status: 500,
         body: mockMovies,

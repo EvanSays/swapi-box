@@ -1,24 +1,22 @@
 
 
 .card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   width: 250px;
-  background: #fff;
-  opacity: 0.8;
+  background: #222;
   border-radius: 3px;
   padding: 0 5px 5px 20px;
-  margin-bottom: 10px;
-  height: 350px;
+  margin: 10px 5px 5px 5px;
+  height: 410px;
 }
 .star-button{
   height: 50px;
   width: 50px;
-}
-.normal-btn {
-
-}
-
-.pink-btn {
-
+  background: #222222;
+  border: none;
+  outline: none;
 }
 
 .normal-btn,
@@ -39,4 +37,22 @@
 .fave {
   width: 35px;
   transition: 0.2s;
+}
+.info-card-title{
+  padding-top: 15px;
+  font-size: 20px;
+  font-weight: bolder;
+}
+
+.info-card-title,
+.info-card-info,
+.info-card-row{
+  color: #DDD;
+  text-transform: capitalize;
+  padding: 12px;
+}
+.info-card-info,
+.info-card-row{
+  font-weight: lighter;
+  font-size: 14px;
 }

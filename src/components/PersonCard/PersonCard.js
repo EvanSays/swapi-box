@@ -10,11 +10,31 @@ const PersonCard = ({peopleInfo, toggleFavorites}) => {
 
   return (
     <div className="card">
-      <h3 className="person-name">Name: {peopleInfo.name}</h3>
-      <p className="person-town">Hometown: {peopleInfo.homeworld}</p>
-      <p className="person-species">Species: {peopleInfo.species}</p>
-      <p className="person-language">Language: {peopleInfo.language}</p>
-      <p className="person-pop">Population: {peopleInfo.population}</p>
+      <table>
+        <thead>
+          <tr>
+          <td colSpan="2" className="person-name info-card-title">{peopleInfo.name}</td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td className='info-card-row'>Hometown:</td>
+            <td className="person-town info-card-info">{peopleInfo.homeworld}</td>
+          </tr>
+          <tr>
+            <td className='info-card-row'>Species:</td>
+            <td className="person-species info-card-info">{peopleInfo.species}</td>
+          </tr>
+          <tr>
+            <td className='info-card-row'>Language:</td>
+            <td className="person-language info-card-info">{peopleInfo.language}</td>
+          </tr>
+          <tr>
+            <td className='info-card-row'>Population:</td>
+            <td className="person-pop info-card-info">{peopleInfo.population}</td>
+          </tr>
+        </tbody>
+      </table>
       <button className="star-button" onClick={()=> toggleFavorites(peopleInfo)}>
         <img src={favorited} alt=""/>
       </button>
