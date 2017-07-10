@@ -10,17 +10,17 @@ const Button = ({populatePeople, populatePlanets, populateVehicles, populateFavo
       <div className="logo">swapibox</div>
       <header className="button-container">
         <button className="populate-people nav" onClick={() => populatePeople()}>
-          <img className="people-icon" src={require('../../assets/005.svg')} alt="Image of Kylo Ren"/>
+          <img className="people-icon" src={require('../../assets/005.svg')} alt="Kylo Ren"/>
           <h3 className="header-people">PEOPLE</h3>
         </button>
 
         <button className="populate-planet nav" onClick={() => populatePlanets()}>
-          <img className="people-icon" src={require('../../assets/007.svg')} alt="Image of a planet"/>
+          <img className="people-icon" src={require('../../assets/007.svg')} alt="Planet"/>
         <h3 className="header-planets">PLANETS</h3>
       </button>
 
         <button className="populate-vehicle nav" onClick={() => populateVehicles()}>
-          <img className="people-icon" src={require('../../assets/003.svg')} alt="Image of a tie fighter"/>
+          <img className="people-icon" src={require('../../assets/003.svg')} alt="Tie Fighter"/>
           <h3 className="header-vehicles">VEHICLES</h3>
         </button>
 
