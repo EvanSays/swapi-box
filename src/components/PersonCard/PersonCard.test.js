@@ -31,11 +31,11 @@ describe('PersonCard', () => {
     const language = component.find('.person-language')
     const population = component.find('.person-pop')
 
-    expect(name.text()).toEqual('Name: Luke Skywalker')
-    expect(hometown.text()).toEqual('Hometown: Tatooine')
-    expect(species.text()).toEqual('Species: Human')
-    expect(language.text()).toEqual('Language: Galactic Basic')
-    expect(population.text()).toEqual('Population: 200000')
+    expect(name.text()).toEqual('Luke Skywalker')
+    expect(hometown.text()).toEqual('Tatooine')
+    expect(species.text()).toEqual('Human')
+    expect(language.text()).toEqual('Galactic Basic')
+    expect(population.text()).toEqual('200000')
   })
 
   it('should have a button that toggles favorites', () => {

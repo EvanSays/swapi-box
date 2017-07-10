@@ -32,11 +32,11 @@ describe('PlanetCard', () => {
     const climate = component.find('.planet-climate')
     const residents = component.find('.planet-residents')
 
-    expect(name.text()).toEqual('Name: Alderaan')
-    expect(terrain.text()).toEqual('Terrain: grasslands, mountains')
-    expect(population.text()).toEqual('Population: 2000000000')
-    expect(climate.text()).toEqual('Climate: temperate')
-    expect(residents.text()).toEqual('Residents: Leia Organa, Bail Prestor Organa, Raymus Antilles')
+    expect(name.text()).toEqual('Alderaan')
+    expect(terrain.text()).toEqual('grasslands, mountains')
+    expect(population.text()).toEqual('2000000000')
+    expect(climate.text()).toEqual('temperate')
+    expect(residents.text()).toEqual('Leia Organa, Bail Prestor Organa, Raymus Antilles')
   })
 
   it('should have a button that toggles favorties', () => {

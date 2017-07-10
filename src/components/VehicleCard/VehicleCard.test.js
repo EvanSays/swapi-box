@@ -30,10 +30,10 @@ describe('VehicleCard', () => {
     const vehicle = component.find('.vehicle-vehicle')
     const passenger = component.find('.vehicle-passenger')
 
-    expect(name.text()).toEqual('Name: Sand Crawler')
-    expect(model.text()).toEqual('Model: Digger Crawler')
-    expect(vehicle.text()).toEqual('Class: wheeled')
-    expect(passenger.text()).toEqual('Passengers: 30')
+    expect(name.text()).toEqual('Sand Crawler')
+    expect(model.text()).toEqual('Digger Crawler')
+    expect(vehicle.text()).toEqual('wheeled')
+    expect(passenger.text()).toEqual('30')
   })
 
   it('should have a button that toggles favorties', () => {

@@ -9,10 +9,24 @@ const Button = ({populatePeople, populatePlanets, populateVehicles, populateFavo
     <div className="header-container">
       <div className="logo">swapibox</div>
       <header className="button-container">
-        <button className="populate-people" onClick={() => populatePeople()}>People</button>
-        <button className="populate-planet" onClick={() => populatePlanets()}>Planets</button>
-        <button className="populate-vehicle" onClick={() => populateVehicles()}>Vehicles</button>
-        <button className="fave-btn" onClick={() => populateFavorites()}>Favorites
+        <button className="populate-people nav" onClick={() => populatePeople()}>
+          <img className="people-icon" src={require('../../assets/005.svg')} alt="Image of Kylo Ren"/>
+          <h3 className="header-people">PEOPLE</h3>
+        </button>
+
+        <button className="populate-planet nav" onClick={() => populatePlanets()}>
+          <img className="people-icon" src={require('../../assets/007.svg')} alt="Image of a planet"/>
+        <h3 className="header-planets">PLANETS</h3>
+      </button>
+
+        <button className="populate-vehicle nav" onClick={() => populateVehicles()}>
+          <img className="people-icon" src={require('../../assets/003.svg')} alt="Image of a tie fighter"/>
+          <h3 className="header-vehicles">VEHICLES</h3>
+        </button>
+
+        <button className="fave-btn nav" onClick={() => populateFavorites()}>
+
+        <h3 className="header-vehicles">FAVORITES</h3>
         <div className="counter">{favCount}</div>
         </button>
       </header>
