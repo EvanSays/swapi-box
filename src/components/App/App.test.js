@@ -4,6 +4,7 @@ import { shallow, mount } from 'enzyme';
 import App from './App';
 import fetchMock from 'fetch-mock'
 import { mockMovies, mockPeople } from '../../data/testData.js'
+import { mockPeopleData, mockPeopleHomeworld1, mockPeopleSpecies1, mockPeopleHomeworld2, mockPeopleSpecies2 } from '../../data/mockPeopleData.js'
 
 describe('App', () => {
 
@@ -36,27 +37,37 @@ describe('App', () => {
   });
 
 
-    it.skip('should add a favorite to the favorites array when star is clicked', async () => {
-      fetchMock.get('http://swapi.co/api/films/', {
-        status: 500,
-        body: mockMovies,
-      });
-      const component = mount(<App/>);
-      // await wrapper.update() DOESN'T WORK
-      await resolveAfter2Seconds(); // WORKS
-      // console.log(component.debug());
+  it.skip('should add a favorite to the favorites array when star is clicked', async () => {
+    fetchMock.get('http://swapi.co/api/films/', {
+      status: 500,
+      body: mockMovies
+    });
+    fetchMock.get('http://swapi.co/api/people/', {
+      status: 500,
+      body: mockPeopleData
+    });
+    // fetchMock.get('http://swapi.co/api/planets/1/', {
+    //   status: 500,
+    //   body: mockPeopleHomeworld1
+    // });
+    // fetchMock.get('http://swapi.co/api/species/1/', {
+    //   status: 500,
+    //   body: mockPeopleSpecies1
+    // });
+    // fetchMock.get('http://swapi.co/api/planets/1/', {
+    //   status: 500,
+    //   body: mockPeopleHomeworld2
+    // });
+    // fetchMock.get('http://swapi.co/api/species/2/', {
+    //   status: 500,
+    //   body: mockPeopleSpecies2
+    // });
 
-      const peoplebtn = component.find('.populate-people')
-      peoplebtn.simulate('click')
-      fetchMock.get('http://swapi.co/api/people/', {
-        status: 500,
-        body: mockPeople
-      });
+    const component = mount(<App/>);
+    await resolveAfter2Seconds(); // WORKS
 
+    const peoplebtn = component.find('.populate-people')
+    peoplebtn.simulate('click')
 
-
-
-    })
-
-
+  })
 });
