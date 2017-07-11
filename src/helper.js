@@ -36,14 +36,14 @@ export default class HelperData {
         const species = person.species.map((url) => {
           return url
         })
-        return fetch(species).then(res => res.json())
+        return fetch(species[0]).then(res => res.json())
       })
       Promise.all([
         ...unresolvedPlaces,
         ...unresolvedSpecies
       ]).then(dataArray => {
-        const homes = dataArray.slice(0, 10)
-        const species = dataArray.slice(10)
+        const homes = dataArray.slice(0, unresolvedPlaces.length)
+        const species = dataArray.slice(unresolvedPlaces.length)
         homes.map((place, i) => {
           return Object.assign(data.results[i], {
             homeworld: place.name,
