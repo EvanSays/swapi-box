@@ -103,7 +103,7 @@ class App extends Component {
                         vehicleArray={this.state.vehicles}
                         toggleFavorites={this.toggleFavorites}
                         renderArray={this.state.renderArray}
-                        loading={this.state.loading}/>
+                        loading={this.state.loading} />
             </div>
         </div>
       )

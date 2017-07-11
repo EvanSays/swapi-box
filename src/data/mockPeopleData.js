@@ -7,7 +7,7 @@ export const mockPeopleData = {
     }, {
       "name": "C-3PO",
       "homeworld": "http://swapi.co/api/planets/1/",
-      "species": ["http://swapi.co/api/species/2/"]
+      "species": ["http://swapi.co/api/species/1/"]
     }
   ]
 }
