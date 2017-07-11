@@ -6,6 +6,7 @@ import fetchMock from 'fetch-mock'
 import { mockMovies, mockPeople } from '../../data/testData.js'
 import { mockPeopleData, mockPeopleHomeworld1, mockPeopleSpecies1, mockPeopleHomeworld2, mockPeopleSpecies2 } from '../../data/mockPeopleData.js'
 import { mockPlanetsData, mockPlanetsPerson1, mockPlanetsPerson2, mockPlanetsPerson3 } from '../../data/mockPlanetsData.js'
+import { mockVehicleData } from '../../data/mockVehiclesData.js'
 
 describe('App', () => {
 
@@ -109,37 +110,25 @@ describe('App', () => {
     expect(component.state().planets.length).toEqual(4)
   })
 
-  it.skip('should add vehicles to the vehicles state when clicking vehicles button', async () => {
+  it('should add vehicles to the vehicles state when clicking vehicles button', async () => {
     fetchMock.get('http://swapi.co/api/films/', {
       status: 500,
       body: mockMovies
     });
-    fetchMock.get('http://swapi.co/api/planets/', {
+    fetchMock.get('http://swapi.co/api/vehicles/', {
       status: 500,
-      body: mockPlanetsData
-    });
-    fetchMock.get('http://swapi.co/api/people/5/', {
-      status: 500,
-      body: mockPlanetsPerson1
-    });
-    fetchMock.get('http://swapi.co/api/people/68/', {
-      status: 500,
-      body: mockPlanetsPerson2
-    });
-    fetchMock.get('http://swapi.co/api/people/81/', {
-      status: 500,
-      body: mockPlanetsPerson3
+      body: mockVehicleData
     });
 
     const component = mount(<App/>);
 
     await resolveAfter2Seconds(); // WORKS
-    const planetBtn = component.find('.populate-planet')
-    planetBtn.simulate('click')
-    expect(component.state().planets).toEqual(null)
+    const vehicleBtn = component.find('.populate-vehicle')
+    vehicleBtn.simulate('click')
+    expect(component.state().vehicles).toEqual(null)
 
     await resolveAfter2Seconds(); // WORKS
-    expect(component.state().planets.length).toEqual(4)
+    expect(component.state().vehicles.length).toEqual(2)
   })
 
   it('should add a favorite person to the favorites array when star is clicked', async () => {
