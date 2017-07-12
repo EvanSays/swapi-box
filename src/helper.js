@@ -73,28 +73,34 @@ export default class HelperData {
     fetch(Api.planets)
     .then(res => res.json())
     .then(planets => {
-      const unresolvedPlanets = planets.results.map((planet) => {
-        app.setState({
-          loading: true
-        })
-        const residentNames = planet.residents.map((resident) => {
-          return fetch(resident).then(res => res.json()).then(data => data.name)
-        })
-        return Promise.all(residentNames).then(data => {
-          if(data.length === 0){
-            data = ['Uninhabited']
-          }
-          data = data.join(', ')
-          return Object.assign(planet, {residents: data,
-            type: 'planet',
-            favorited: false,
-            id: Math.round(Date.now() * Math.random())})
-        })
-      })
-      return Promise.all(unresolvedPlanets)
+
+      return Promise.all(this.unresolvedPlanets(planets))
     }).then(res => app.setState({planets: res,
                                  renderArray: res,
                                  loading: false}))
+  }
+
+  unresolvedPlanets (planets) {
+    return planets.results.map((planet) => {
+      return Promise.all(this.fetchResidents(planet)).then(data => {
+        !data.length ? data = ['Uninhabited'] : null
+        data = data.join(', ')
+        return this.addResidents(planet, data)
+      })
+    })
+  }
+
+  addResidents(planet, data) {
+    return Object.assign(planet, {residents: data,
+      type: 'planet',
+      favorited: false,
+      id: Math.round(Date.now() * Math.random())})
+  }
+
+  fetchResidents(planet) {
+    return planet.residents.map((resident) => {
+      return fetch(resident).then(res => res.json()).then(data => data.name)
+    })
   }
 
   getVehicles(app) {
@@ -109,7 +115,7 @@ export default class HelperData {
         return Object.assign(vehicle, {
           type: 'vehicle',
           favorited: false,
-          id: Math.round(Date.now() * Math.random())
+          id: Math.floor(Math.random() * 20)
         })
       });
       return Promise.all(unresolvedVehicles).then(res => app.setState({vehicles: res,
