@@ -1,10 +1,10 @@
 Star Wars API (SWAPI) Box - A Turing Mod 3 FEE Project
 
-Synopsis
+### Synopsis
 
-This project contains a card-based interface displaying key information on the people, planets and vehicles of the Star Wars franchise. This information is called from the Star Wars API resulting in nested fetch calls and Promise.all(). The project also provides functionality to select and display the user's favorite cards.
+This project contains a card-based interface displaying key information on the people, planets and vehicles of the Star Wars franchise. This information is called from the [Star Wars API](https://swapi.co/) resulting in nested fetch calls and Promise.all(). The project also provides functionality to select and display the user's favorite cards.
 
-Set Up
+### Set Up
 
 Clone the repo
 
@@ -12,17 +12,17 @@ Run npm install from the root directory
 
 Run npm start and visit localhost:3000 in your browser
 
-Test Driven Development
+### Test Driven Development
 
 SWAPI-Box uses Jest with Enzyme for testing
 
 Run with npm test
 
-Original Assignment
+### Original Assignment
 
-SWAPIbox from the Turing School of Software & Design
+[SWAPIbox](http://frontend.turing.io/projects/swapi-box.html) from the Turing School of Software & Design
 
-Project Goals
+### Project Goals
 
 Make informed design decisions to create a user-friendly application.
 Create modular, reusable React components.
