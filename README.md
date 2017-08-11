@@ -1,5 +1,8 @@
 Star Wars API (SWAPI) Box - A Turing Mod 3 FEE Project
 
+<img width="1280" alt="screen shot 2017-08-10 at 6 40 09 pm" src="https://user-images.githubusercontent.com/18603030/29197761-700145d2-7dfb-11e7-82a2-7173fde384d0.png">
+
+
 ### Synopsis
 
 This project contains a card-based interface displaying key information on the people, planets and vehicles of the Star Wars franchise. This information is called from the [Star Wars API](https://swapi.co/) resulting in nested fetch calls and Promise.all(). The project also provides functionality to select and display the user's favorite cards.
